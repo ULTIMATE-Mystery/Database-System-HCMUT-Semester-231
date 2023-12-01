@@ -1,52 +1,83 @@
 use btl;
 
-create table don_thuoc (
-	ma_don_thuoc int primary key,
-    ngay_tao datetime not null,
-    ma_benh_nhan int not null,
-    ngay_kham date not null,
-    gio_kham time not null
-);
+INSERT INTO thuoc_trong_don
+VALUES
+(1,1 , 20.000, 10),
+(2,2 , 30.000, 5),
+(3,3 , 40.000, 2),
+(4,4 , 50.000, 1),
+(5,5 , 60.000, 0);
 
-create table lich_kham (
-	ma_benh_nhan int not null,
-    ngay_kham date not null,
-    gio_kham time,
-    trang_thai varchar(20) not null,
-    ma_bac_si int not null,
-    chan_doan varchar(100),
-    thoi_gian_bat_dau time,
-    thoi_gian_ket_thuc time,
-    primary key(ma_benh_nhan, ngay_kham, gio_kham),
-    constraint fk_lich_kham foreign key (ma_bac_si) references bac_si (ma_bac_si)
-);
+alter table don_thuoc
+drop constraint fk_don_thuoc;
 
-alter table don_thuoc 
-add constraint fk_don_thuoc foreign key (ma_benh_nhan, ngay_kham, gio_kham) references lich_kham(ma_benh_nhan, ngay_kham, gio_kham);
+alter table don_thuoc
+add constraint fk_don_thuoc foreign key (ma_benh_nhan, ngay_kham, gio_kham) references lich_kham(ma_benh_nhan, ngay_kham, gio_kham) on update cascade;
 
-create table thuc_hien_xet_nghiem (
-	ma_benh_nhan int not null,
-    ngay_kham date not null,
-    gio_kham time,
-    ma_xet_nghiem varchar(15),
-    primary key(ma_benh_nhan, ngay_kham, gio_kham, ma_xet_nghiem),
-    constraint fk_date foreign key (ma_benh_nhan, ngay_kham, gio_kham) references lich_kham(ma_benh_nhan, ngay_kham, gio_kham),
-    constraint fk_ma_xet_nghiem foreign key (ma_xet_nghiem) references xet_nghiem_chi_dinh(ma_xet_nghiem)
-);
+update lich_kham 
+set ma_benh_nhan = 6 where ma_benh_nhan = 2;
 
-create table hoa_don (
-	ma_hoa_don int primary key auto_increment,
-    thoi_gian_tao datetime,
-    tong_tien int,
-    phuong_thuc_thanh_toan varchar(10),
-    ma_benh_nhan int,
-    ngay_kham date,
-    gio_kham time,
-    constraint fk_hoa_don foreign key(ma_benh_nhan, ngay_kham, gio_kham) references lich_kham(ma_benh_nhan, ngay_kham, gio_kham)
-);
+insert into lich_kham
+values
+(1, '2023-03-20', '7:00:00', 'đã khám', 4, 'đau ruột thừa', '7:20:00', '7:40:00'),
+(1, '2023-04-10', '9:00:00', 'chưa khám', 5, null, null, null),
+(6, '2023-03-25', '15:00:00', 'đã khám', 9, 'bình thường', '14:50:00', '15:00:00'),
+(3, '2023-03-25', '16:00:00', 'đã khám', 9, 'bình thường', '16:30:00', '16:40:00'),
+(6, '2023-03-25', '8:00:00', 'đã khám', 15, 'viêm phổi', '9:00:00', '9:10:00'),
+(7, '2023-03-27', '9:00:00', 'chưa khám', 9, null, null, null),
+(10, '2023-03-29', '16:00:00', 'đã khám', 15, 'viêm họng', '15:00:00', '15:10:00'),
+(12, '2023-03-30', '8:00:00', 'đã khám', 15, 'viêm phổi', '9:00:00', '9:10:00'),
+(14, '2023-04-01', '10:00:00', 'đã khám', 16, 'đau bụng', '10:00:00', '10:10:00'),
+(18, '2023-04-01', '13:20:00', 'đã khám', 16, 'đầy hơi', '13:30:00', '13:40:00'),
+(19, '2023-04-02', '9:00:00', 'chưa khám', 5, null, null, null),
+(20, '2023-04-04', '15:00:00', 'đã khám', 4, 'viêm phổi', '14:00:00', '14:10:00');
 
-create table tao_hoa_don (
-	ma_hoa_don int primary key,
-    ma_dieu_duong int,
-    constraint fk_ma_dieu_duong foreign key(ma_dieu_duong) references dieu_duong(ma_dieu_duong)
-);
+insert into don_thuoc
+values 
+(1, '2023-03-20 9:00:00', 1, '2023-03-20', '7:00:00'),
+(2, '2023-03-25 15:30:00', 2, '2023-03-25', '15:00:00'),
+(3, '2023-03-25 17:00:00', 3, '2023-03-25', '16:00:00'),
+(4, '2023-03-25 9:00:00', 6, '2023-03-25', '8:00:00'),
+(5, '2023-03-29 16:40:00', 10, '2023-03-29', '16:00:00'),
+(6, '2023-03-30 9:00:00', 12, '2023-03-30', '8:00:00'),
+(7, '2023-04-01 11:00:00', 14, '2023-04-01', '10:00:00'),
+(8, '2023-04-01 14:00:00', 18, '2023-04-01', '13:20:00'),
+(9, '2023-04-04 9:00:00', 20, '2023-04-04', '15:00:00');
+
+insert into thuc_hien_xet_nghiem
+values 
+(1, '2023-03-20', '7:00:00', 4),
+(6, '2023-03-25', '8:00:00', 3),
+(10, '2023-03-29', '16:00:00', 3),
+(12, '2023-03-30', '8:00:00', 3),
+(14, '2023-04-01', '10:00:00', 4),
+(18, '2023-04-01', '13:20:00', 1),
+(18, '2023-04-01', '13:20:00', 4),
+(20, '2023-04-04', '15:00:00', 3);
+
+alter table hoa_don
+modify column phuong_thuc_thanh_toan varchar(20);
+
+insert into hoa_don 
+values
+(1, '2023-03-20 10:00:00', 700000, 'tien mat', 1, '2023-03-20', '7:00:00', 'da thanh toan'),
+(2, '2023-03-25 16:30:00', 800000, 'tien mat', 6, '2023-03-25', '15:00:00', 'da thanh toan'),
+(3, '2023-03-25 17:00:00', 900000, 'chuyen khoan', 3, '2023-03-25', '16:00:00', 'chua thanh toan'),
+(4, '2023-03-25 8:30:00', 1000000, 'tien mat', 6, '2023-03-25', '8:00:00', 'da thanh toan'),
+(5, '2023-03-29 17:00:00', 700000, 'chuyen khoan', 10, '2023-03-29', '16:00:00', 'da thanh toan'),
+(6, '2023-03-30 9:00:00', 750000, 'tien mat', 12, '2023-03-30', '8:00:00', 'chua thanh toan'),
+(7, '2023-04-01 11:00:00', 800000, 'tien mat', 14, '2023-04-01', '10:00:00', 'chua thanh toan'),
+(8, '2023-04-01 14:00:00', 800000, 'chuyen khoan', 18, '2023-04-01', '13:20:00', 'da thanh toan'),
+(9, '2023-04-04 16:00:00', 900000, 'tien mat', 20, '2023-04-04', '15:00:00', 'da thanh toan');
+
+insert into tao_hoa_don
+values
+(1, 2),
+(2, 8),
+(3, 11),
+(4, 13),
+(5, 17),
+(6, 2),
+(7, 2),
+(8, 11),
+(9, 17);
