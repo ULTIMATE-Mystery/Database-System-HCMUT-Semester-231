@@ -1,0 +1,57 @@
+﻿Chỉnh database: 
+    ALTER table work_schedule
+	add start_day date,
+    add end_day date;
+update work_schedule
+set start_day= "2021-10-11",end_day=null;
+
+ALTER TABLE `pharmacy`.`work_schedule` 
+CHANGE COLUMN `work_session` `work_session` CHAR(1) NOT NULL ,
+CHANGE COLUMN `start_day` `start_day` DATE NOT NULL ,
+CHANGE COLUMN `end_day` `end_day` DATE NULL ,
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`doctor_phone`, `work_day`, `work_session`, `start_day`);
+
+
+
+				FOR DŨNG
+//////////////////////////////////////////////////////////////////////////////////////////
+Đặt lịch khám: @@@Thương iu tag Dũng :"D vì t k hiểu đc code :"D
+        có những lịch làm việc bị ngừng bởi end_day nên k cho nó hiển thị nữa
+        Sau khi đặt thi hiện popup điền thông tin vấn đề sức khỏe. 
+        Dòng 283 của reExamminate
+//////////////////////////////////////////////////////////////////////////////////////////
+
+Bác sỹ:
+    lịch làm việc:
+        chưa bật popup confirm
+
+    HR: chưa bật popup confirm, chưa báo toast
+
+
+    5TING!!!
+    @DUNG
+    @CAT
+     
+
+
+     from Hongphuc with many bugs
+
+
+
+
+
+
+
+
+
+Profile,login,đăng nhập: co1vbao loi nhưng css hư
+
+lỗi session destroy: out thì k login lại được-> đang thử regeneratenhung7 kđc
+
+
++cho bệnh nhân coi quản lý đơn thuốc của bản thân->giống nurse
++chỉnh API cho dũng:done
++edit quyền xem đơn thuốc: done
++edit lỗi hủy update:done
++add path: chỉ có xem đơn kê toa cần link mới: done

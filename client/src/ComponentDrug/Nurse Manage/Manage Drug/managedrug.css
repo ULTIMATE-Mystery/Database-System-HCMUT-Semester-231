@@ -1,0 +1,65 @@
+.manage-button, .manage-button:hover, .manage-button:not(:hover) {
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    background-color: #62AFFC;
+    color: white;
+    font-size: 15px;
+    width: 250px;
+    height: 37.5px;
+    border: 1px solid #62AFFC;
+    text-transform: capitalize;
+    font-weight: bold;
+    box-shadow: none;
+    margin: 20px auto 20px 0px;
+}
+
+.manage-drug-heading {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+.manage-drug-header {
+   font-weight: bold;
+   font-size: 20px;
+   text-align: left;
+   padding-top: 5px;
+   margin-left: 10px;
+}
+
+.manage-drug-button, .manage-drug-button:hover, .manage-drug-button:not(:hover)  {
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    background-color: #62AFFC;
+    color: white;
+    font-size: 15px;
+    text-transform: capitalize;
+    width: 100px;
+    box-shadow: none;
+    margin: auto;
+    padding: 2px 2% 2px 2%;
+    text-align: center;
+    margin-top: -5px;
+    border: 1px solid #62AFFC;
+  }
+
+.search-drug1-bar {
+  width: 200px;
+}
+
+.search-box {
+  border-radius: 0px;
+}
+
+.search-drug-button, .search-drug-button:hover, .search-drug-button:not(:hover) {
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  background-color: #62AFFC;
+  color: white;
+  font-size: 15px;
+  width: 100px;
+  height: 37.5px;
+  border: 1px solid #62AFFC;
+  text-transform: capitalize;
+  padding: 6px 0px 6px 0px;
+  margin-top: 1px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+  

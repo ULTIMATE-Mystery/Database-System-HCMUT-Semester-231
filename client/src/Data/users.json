@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "phone": 999613370,
+        "firstname": "Quỳnh",
+        "lastname": "Trần Hữu",
+        "dateOfbirth": "1995-11-13",
+        "address": "Long An",
+        "email": "quynhtranhuu@gmail.com",
+        "pwd": "123456",
+        "role": "Patient"
+    },
+    {
+        "id": 2,
+        "phone": 713582931,
+        "firstname": "Bảo",
+        "lastname": "Trần Văn",
+        "dateOfbirth": "1999-3-26",
+        "address": "Long An",
+        "email": "baotranvan@gmail.com",
+        "pwd": "123456",
+        "role": "Doctor"
+    },
+    {
+        "id": 3,
+        "phone": 432432078,
+        "firstname": "Thành",
+        "lastname": "Trần Hữu",
+        "dateOfbirth": "1999-1-16",
+        "address": "Nghệ An",
+        "email": "thanhtranhuu@gmail.com",
+        "pwd": "123456",
+        "role": "Nurse"
+    },
+    {
+        "id": 4,
+        "phone": 410507654,
+        "firstname": "Khánh",
+        "lastname": "Trần Văn",
+        "dateOfbirth": "1999-6-4",
+        "address": "Quảng Bình",
+        "email": "khanhtranvan@gmail.com",
+        "pwd": "123456",
+        "role": "Nurse"
+    }
+]

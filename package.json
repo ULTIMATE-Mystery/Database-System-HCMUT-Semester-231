@@ -1,0 +1,48 @@
+{
+  "name": "IS_Pharmacy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"nodemon ./server.js localhost 4000 \" \"npm run client\"",
+    "build": "cd client && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.3.0",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "firebase": "^8.10.0",
+    "masonry-layout": "^4.2.2",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
+    "pagination-component": "^1.1.1",
+    "react-calendar": "^3.5.0",
+    "react-masonry-component": "^6.3.0",
+    "react-material-toast": "^16.1.7",
+    "react-pro-sidebar": "^0.7.1",
+    "react-router-bootstrap": "^0.25.0",
+    "react-select": "^5.2.1",
+    "react-to-print": "^2.14.1",
+    "recharts": "^2.1.6",
+    "session-file-store": "^1.5.0",
+    "styled-components": "^5.3.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "bcryptjs": "^2.4.3"
+  }
+}

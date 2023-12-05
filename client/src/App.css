@@ -1,0 +1,879 @@
+/* ----------------------------------Cat------------------------------------*/
+/* -------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------*/
+
+* {
+  box-sizing : border-box;
+}
+
+body {
+  font-size: 15px;
+  background-color: #F6F8FB !important;
+}
+
+body.modal-open {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.navbar-header {
+  background-color: #D8EDFD !important;
+  color: black;
+  z-index: 19;
+  width: 100%;
+}
+
+.header-content {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.header-content > p.content-1 {
+  margin-bottom: -10px;
+}
+
+.header-decription, .service-description, .service-text {
+  color: #7D7987;
+}
+
+.home-image img {
+  width: 100%;
+}
+
+.calendar  {
+  border-radius: 55px !important;
+}
+
+.home-button-calendar {
+  margin-top: 20px;
+}
+
+.Logo {
+  width: 50px;
+}
+
+.navbar-dark {
+  background-color: #D8EDFD;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: black !important;
+}
+
+.service-content, .service-description {
+  text-align: center;
+}
+
+.back-button-2, .back-button-2:hover, .back-button-2:not(:hover) {
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  background-color: #62AFFC;
+  color: white;
+  font-size: 15px;
+  width: 50px;
+  height: 30px;
+  border: 1px solid #62AFFC;
+  text-transform: capitalize;
+  padding: 0px 0px 0px 0px;
+  border-radius: 10px;
+  box-shadow: none;
+  margin: 5px 0px -10px 8px;
+  float: left;
+}
+
+.service-content{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.service-img {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.service-item {
+  height: 300px
+}
+
+.contact-button {
+  background-color: #F6F8FB;
+  color: #458FF6;
+  border-radius: 55px;
+  border: 1px solid #458FF6;
+  margin-left: 520px;
+}
+
+.content-container {
+  min-height: calc(100vh - 157.5px);
+}
+
+.footer {
+  background-color: #5B9BF3;
+  clear: both;
+}
+.footer-header {
+  font-size: 15px;
+  color: #F6F8FD;
+  font-weight: bold;
+}
+
+.footer-content {
+  color: #F6F8FD;
+  font-size: 15px;
+}
+
+.cat-cushome-header {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.cat-customer-item {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.cat-customer-item-left {
+  width: 250px;
+  height: 250px;
+  margin-right: auto;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.cat-customer-item-right {
+  width: 250px;
+  height: 250px;
+  margin-left: auto;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.cat-customer-img {
+  margin: auto;
+  margin-top: 50px
+}
+
+.cat-customer-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cat-customer-item-link {
+  text-decoration: none;
+  color: black;
+}
+
+.cat-customer-item-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.drug-item, .modal-drug-item{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+}
+.drug-img, .modal-drug-img {
+  margin: auto;
+  margin-top: 5px
+}
+
+.drug-text, .modal-drug-text {
+  font-size: 15px;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.modal-drug-text {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+  height: fit-content
+}
+
+
+.drug-title, .modal-drug-title {
+  color: #7C7C7C;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  font-size: 12px;
+}
+
+.modal-drug-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.modal-add-button {
+  margin: auto;
+  background-color: #62AFFC;
+  color: white;
+  font-weight: bold;
+  border: 1px white;
+  border-radius: 20px;
+  height: 67px;
+  font-size: 20px;
+  margin-top: 10px;
+  width: 466px;
+}
+
+.modal-add-button:hover {
+  background-color: #62AFFC;
+}
+
+.drug-price-add, .modal-drug-price-add {
+  margin-top: 10px;
+}
+
+.drug-price {
+  font-size: 15px;
+  width: 10px;
+  font-weight: bold;
+}
+
+.modal-item-content {
+  margin-top: 10px;
+  position: relative;
+}
+
+.modal-adjust-item, .modal-add-item, .modal-number-item{
+  float: left;
+  width: 17px;
+  text-align: center;
+  font-size: 20px;
+  margin-right: 15px;
+  padding-top: 5px
+}
+
+.modal-number-item {
+  width: 45.67px;
+  height: 45.67px;
+  border: 1px solid;
+  border-radius: 17px;
+}
+
+
+.modal-drug-price {
+  margin-top: 0px;
+  position: absolute;
+  font-size: 25px;
+  font-weight: bold;
+  right: 0px
+}
+
+.drug-add-item {
+  position: absolute;
+  right: 10px;
+  bottom: 14px;
+}
+
+.drug-add-item-img:hover {
+  cursor: pointer;
+}
+
+.search-drug-bar {
+  background-color: #D8EDFD;
+}
+
+.search {
+  margin-left: 5px;
+}
+
+.search-1 {
+  margin-top: 1px;
+  font-size: 12px;
+}
+
+.search-2 {
+  margin-top: -17px;
+  font-weight: bold;
+}
+
+.show-category {
+  margin-top: 23px;
+  margin-left: 2px
+}
+
+.cart {
+  position: relative;
+}
+
+.buy-cart {
+  font-size: 40px;
+}
+
+.buy-cart-item {
+  position: absolute;
+  background-color: #62AFFC;
+  color: white;
+  border-radius: 55%;
+  width: 20px;
+  text-align: center;
+  font-weight: bold;
+  left: 27px;
+  top: -1px
+}
+
+.search-bar-cat {
+  width: 560px;
+  margin-left: 30px;
+  border-radius: 0px;
+}
+
+.search-button-cat {
+  height: 38px;
+  text-align: center;
+}
+
+.search-button-text {
+  margin-top: 15px;
+  color: white
+}
+
+.not-found {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.cart-item {
+  position: relative;
+  border: 1px solid;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.cart-header {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin: 30px 0px 30px 0px;
+}
+
+.cart-button {
+  position: relative;
+  background-color: #62AFFC;
+  border: 1px #62AFFC;
+  border-radius: 10px;
+  width: 300px;
+  height: 55px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  margin-left: 36%
+}
+
+.cart-button:hover {
+  background-color: #62AFFC;
+  color: white;
+}
+
+.cart-total {
+  position: absolute;
+  padding: 1px;
+  font-size: 12px;
+  width: 65px;
+  height: 22px;
+  background-color: #1E8EFE;
+  border-radius: 4px;
+  top: 35%;
+  right: 10px
+}
+
+.cart-item-img {
+  float: left;
+  margin-right: 20px;
+}
+
+.cart-item-name {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.cart-item-content {
+  font-weight: bold;
+  color: #7C7C7C;
+  margin-top: 10px
+}
+
+.cart-item-number {
+  margin-left: 200px;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-item-price {
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  right: 33px;
+  bottom: 18px;
+
+}
+
+.pro-sidebar > .pro-sidebar-inner, .pro-sidebar .pro-menu.shaped .pro-menu-item > .pro-inner-item > .pro-icon-wrapper,
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
+  background-color: #BDE0FF;
+}
+
+.pro-sidebar, .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover {
+  color: black;
+}
+
+.pro-sidebar {
+  float: left;
+  top: 0;
+  position: sticky;
+  height: 100vh;
+}
+
+.pro-item-content:not(:hover), .pro-icon-wrapper:not(:hover) {
+  color: black;
+}
+/* ----------------------------------Phuc------------------------------------*/
+/* --------------------------------------------------------------------------*/
+
+Log{
+  min-height: 42px;
+  font-family: var(--font-family-roboto);
+  font-weight: 700;
+  color: #222221c2;
+  font-size: var(--font-size-m);
+  letter-spacing: 0;
+}
+.ava{
+width: 266px;
+height: 266px;
+left: 71px;
+top: 12px;
+border-radius: 166px;
+}
+.center{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.center_screen{
+  position: 'absolute';
+  left: '50%'; top: '50%';
+  align-items: center;
+}
+.exception{
+  font-family: Roboto;
+font-style: italic;
+font-weight: normal;
+font-size: 11px;
+line-height: 21px;
+color: #00B2FF;
+background-color: #00000000;
+}
+
+/* --------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------*/
+
+
+/* ----------------------------------Chanh------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+
+.chanh-button-view{
+  background-color: #FFD700;
+  border-radius: 5px;
+  /* padding: 1% 8%; */
+  border: none;
+  height: 25px;
+  width: 95px;
+}
+.chanh-details{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.details {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.details-main {
+  position:fixed;
+  background: white;
+  width: 600px;
+  height: 360px;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 720px) {
+  section.details-main {
+    float: none;
+    width: 380px;
+    height: 210px;
+  }
+}
+
+section.details-main h5{
+  font-weight: bolder;
+}
+
+section.details-body{
+  text-align: left;
+}
+section.details-main{
+  text-align: center;
+}
+
+section.details-main p{
+  padding-bottom: 15px;
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+section.details-main button{
+  height: 8%;
+  width: 30%;
+  margin: 0 5%;
+  border-radius: 5px;
+  background-color: #FFD700;
+  font-weight: 500;
+  border: none;
+}
+
+/* ----------------------------------Dung------------------------------------*/
+/* --------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------*/
+.dung-title{
+  text-align: center;
+  padding: 5% 0%;
+}
+
+.dung-title h1{
+  font-weight: bold;
+}
+
+.dung-service-item{
+  height: 250px;
+  width: 250px;
+  border-radius: 5%;
+  align-items: center;
+}
+
+.dung-imgfor-doctor{
+  padding-top: 20%;
+}
+
+/* div.card-body{
+  padding: 20% 0%;
+} */
+
+
+div.doctor-service.row{
+  padding: 1.5%;
+  display: inline-flex;
+}
+
+div.dung-doctor-row1{
+  text-align: center;
+}
+
+div.dung-doctor-row2{
+  text-align: center;
+  padding-bottom: 5%;
+} 
+
+div.dung-title hr{
+  background-color: #000000;
+  width: 10%;
+}
+
+.dung-table {
+  background-color: #a2a6aa;
+}
+
+.dung-table-body{
+  background-color: #ffffff;
+}
+
+div#dung-appointment.container{
+  padding-bottom: 7%;
+}
+
+.dung-button-dangky{
+  background-color: #FFD700;
+  border-radius: 5px;
+  /* padding: 1% 8%; */
+  border: none;
+  height: 25px;
+  width: 75px;
+}
+.mini-ava{
+  width:30px;
+  height: 30px;
+  border-radius: 5px;
+  border-width: 3px;
+  border-color: #000000;
+}
+/* button.btn.btn-outline-primary{
+  width: 11%;
+  color: #000000;
+} */
+
+table.table.table-hover{
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*  */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 380px;
+  height: 210px;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 720px) {
+  section.modal-main {
+    float: none;
+    width: 380px;
+    height: 210px;
+  }
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.dung-logomini{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+section.modal-main h5{
+  font-weight: bolder;
+}
+
+section.modal-main{
+  text-align: center;
+}
+
+section.modal-main p{
+  padding-bottom: 15px;
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+section.modal-main button{
+  height: 18%;
+  width: 30%;
+  margin: 0 5%;
+  border-radius: 5px;
+  background-color: #FFD700;
+  font-weight: 500;
+  border: none;
+}
+
+/*  */
+.dung-button-thu{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  margin: 0px 5px 30px 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dung-button-thu:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.dung-thu{
+  text-align: center;
+}
+
+button.dung.cart-button.btn.btn-secondary{
+  background-color: #FFD700;
+  color: #000000;
+  margin-bottom: 70px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* h4.dung-phuongthuc{
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 250px;
+} */
+
+input.dung-vi{
+  margin: 0px 30px;
+}
+
+div.dung-phuongthuc{
+  text-align: center;
+}
+
+input#zalopay{
+  margin-left: 30px;
+  margin-bottom: 40px;
+}
+
+
+div.dung-button-createappointment button{
+  border-radius: 0px;
+  position: auto;
+}
+
+div.dung-button-createappointment.aa{
+  margin-bottom: 70px;
+  position: auto;
+}
+
+div.dung-form-taolich{
+  width: 500px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+#clickhere{
+  margin-bottom: 113px;
+  text-align: center;
+}
+
+div#dung-cancelappointment.container{
+  padding-bottom: 10%;
+}
+
+input.dung-input-phone.form-control{
+  width: 240px;
+  text-align: center;
+  margin: 0px 80px 10px 80px;
+}
+
+section.modal-main.instant h5{
+  font-weight: bolder;
+}
+
+section.modal-main.instant{
+  text-align: center;
+  width: 400px;
+  height: 230px;
+}
+
+section.modal-main.instant button{
+  height: 18%;
+  width: 30%;
+  margin: 0 5%;
+  border-radius: 5px;
+  background-color: #FFD700;
+  font-weight: 500;
+  border: none;
+}
+
+div#dung-re-sched.container{
+  margin-bottom: 100px;
+}
+
+div#dung-viewmedicalrecord.container{
+  margin-bottom: 190px;
+}
+
+button.dung.cart-button.benhan.btn.btn-secondary{
+  margin: 19px 0px;
+}
+
+button.dung.cart-button.benhan.nd.btn.btn-secondary{
+  margin-bottom: 0px;
+}
+
+.dung-tachdiv{
+  margin: 50px 200px;
+  background-color: white;
+}
+
+.dung-benhnhan{
+  text-align: center;
+}
+
+.dung-thongtin{
+  margin-left: 70px;
+}
+
+.modal-main.aa {
+  position:fixed;
+  background: white;
+  width: 400px;
+  height: 300px;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 10px;
+}
+
+textarea#health-issue.form-control{
+  width: 300px;
+  height: 90px;
+  margin: 0px 50px 20px 50px;
+}
+
+section.modal-main.aa p {
+  padding-bottom: 0px;
+}
+
+section.modal-main.aa button{
+  height: 13%;
+  width: 30%;
+}

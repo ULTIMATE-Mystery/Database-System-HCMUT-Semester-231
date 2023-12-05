@@ -1,0 +1,242 @@
+[
+    {
+        "name": "Amlodipin 5mg Nang Pháp",
+        "price": 280000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Betadine SK 125ml",
+        "price": 62000,
+        "unit": "Lọ",
+        "remain": 10
+    },
+    {
+        "name": "Betadine SK 30ml",
+        "price": 37000,
+        "unit": "Lọ",
+        "remain": 20
+    },
+    {
+        "name": "Cao tan Kim Đan",
+        "price": 70000,
+        "unit": "Bịch",
+        "remain": 20
+    },
+    {
+        "name": "Ariel Dán say xe Tatra",
+        "price": 22000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Băng cuộn Đại Minh 10cm",
+        "price": 18000,
+        "unit": "Bịch",
+        "remain": 20
+    },
+    {
+        "name": "Băng rốn Đông Fa",
+        "price": 7000,
+        "unit": "Bịch",
+        "remain": 20
+    },
+    {
+        "name": "Bông 10g Bạch Tuyết",
+        "price": 5000,
+        "unit": "Bịch",
+        "remain": 20
+    },
+    {
+        "name": "Bông 5g Bạch Tuyết",
+        "price": 3000,
+        "unit": "Bịch",
+        "remain": 20
+    },
+    {
+        "name": "Oxy già 20ml Hóa Dược",
+        "price": 8000,
+        "unit": "Lọ",
+        "remain": 20
+    },
+    {
+        "name": "Daflon 500mg Viên Pháp",
+        "price": 238000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Amlodipin 5mg Nang Pháp",
+        "price": 280000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Esomeprazol 20mg Viên USP",
+        "price": 100000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Losec mup 20mg Viên Thụy Điển",
+        "price": 410000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Nautamine Viên Pháp",
+        "price": 3000,
+        "unit": "Viên",
+        "remain": 20
+    },
+    {
+        "name": "Nexium 10mg Bột",
+        "price": "5000",
+        "unit": "Gói",
+        "remain": 20
+    },
+    {
+        "name": "Pantostad 40mg Viên Stada",
+        "price": 102000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Tràng vị khang Hộp 6 gói",
+        "price": 45000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Yumangel Gói 15ml HQ",
+        "price": 95000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Canxinano Bột Hộp 20g",
+        "price": 189000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Enterogemina Ống Pháp",
+        "price": 160000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Lacteol 340mg Bột Pháp",
+        "price": 121000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Neopeptin Viên  Ấn Độ",
+        "price": 226000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Nhiệt miệng Phúc Vinh",
+        "price": 89000,
+        "unit": "Lọ",
+        "remain": 20
+    },
+    {
+        "name": "Oresol nước Royal Plus 300ml Thành Công",
+        "price": 75000,
+        "unit": "Lọ",
+        "remain": 20
+    },
+    {
+        "name": "Oresol cam Bột H/40 gói Á Châu",
+        "price": 90000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Utrogestan 200mg Viên Pháp",
+        "price": 250000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Cao sao vàng 3g TW3",
+        "price": 5000,
+        "unit": "Bịch",
+        "remain": 20
+    },
+    {
+        "name": "Cetaphil Lọ 125ml Canada",
+        "price": 195000,
+        "unit": "Chai",
+        "remain": 20
+    },
+    {
+        "name": "Dầu gió gừng Lọ 24ml Thái Dương",
+        "price": 100000,
+        "unit": "Lọ",
+        "remain": 20
+    },
+    {
+        "name": "Dầu gió Trường Sơn",
+        "price": 11500,
+        "unit": "Chai",
+        "remain": 20
+    },
+    {
+        "name": "Glucophage 850mg Hộp 100v Pháp",
+        "price": 360000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Hoạt huyết Minh não khang",
+        "price": 51000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Micardis 40mg Viên Đức",
+        "price": 310000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Piracetam 800mg Viên Hậu Giang",
+        "price": 120000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Transamin 500mg Viên HQ",
+        "price": 450000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Acotea Trà tăng áp Việt Đức",
+        "price": 60000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Biseptol 480mg Viên LD Ba Lan",
+        "price": 45000,
+        "unit": "Hộp",
+        "remain": 20
+    },
+    {
+        "name": "Clopheniramin 4mg Lọ 500v Nén Nic",
+        "price": 41000,
+        "unit": "Lọ",
+        "remain": 20
+    },
+    {
+        "name": "ACoversyl 5mg Viên Pháp",
+        "price": 210000,
+        "unit": "Lọ",
+        "remain": 20
+    }    
+]
