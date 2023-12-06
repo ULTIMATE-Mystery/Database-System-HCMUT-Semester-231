@@ -14,14 +14,25 @@ import axios from "axios";
 import CreateOrderModal from "../../../Components/Modal/CreateBillModal.js";
 
 function ViewOrder() {
-  const formatDateTime = (dateTimeString) => {
+  const addHours = (dateTimeString, hours) => {
     const date = new Date(dateTimeString);
+    date.setTime(date.getTime() + hours * 60 * 60 * 1000); // Thêm số giờ (hours) vào thời gian hiện tại
+    return date;
+  };
+
+  const formatDateTime = (dateTimeString) => {
+    const date = addHours(dateTimeString, 7); // Thêm 7 giờ vào thời gian
     return date.toISOString().replace("T", " ").replace(".000Z", "");
   };
 
-  // Định dạng lại ngày thành 'YYYY-MM-DD'
-  const formatDate = (dateString) => {
+  const addDays = (dateString, days) => {
     const date = new Date(dateString);
+    date.setDate(date.getDate() + days); // Thêm số ngày (days) vào ngày hiện tại
+    return date;
+  };
+
+  const formatDate = (dateString) => {
+    const date = addDays(dateString, 1); // Thêm 1 ngày vào ngày hiện tại
     return date.toISOString().split("T")[0];
   };
 
