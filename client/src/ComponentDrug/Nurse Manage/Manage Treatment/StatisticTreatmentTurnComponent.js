@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { Input, Button } from 'reactstrap';
 import { Table } from 'reactstrap';
 import { FaSearch } from 'react-icons/fa';
-import { XAxis, YAxis, Tooltip, Legend, Bar, BarChart, CartesianGrid } from 'recharts'
+import { XAxis, YAxis, Tooltip, Legend, Bar, BarChart, CartesianGrid, Label} from 'recharts'
 import '../Manage Order/manage_order.css';
 import axios from 'axios';
 import NurseSideBar from '../../../5.Share Component/SideBar/NurseSideBarComponent';
@@ -11,6 +11,27 @@ import DoctorSideBar from '../../../5.Share Component/SideBar/DoctorSideBarCompo
 import HeaderDefine from '../../../5.Share Component/Context';
 import { Switch, Redirect } from 'react-router-dom';
 
+
+const styles = {
+    container: {
+      backgroundColor: '#f8f9fa', // Màu nền nhẹ cho container
+    },
+    chartContainer: {
+        display: 'flex',
+        justifyContent: 'center', // This will center the button horizontally
+        alignItems: 'center', // This will center the button vertically
+    },
+    tableContainer: {
+        display: 'flex',
+        justifyContent: 'center', // This will center the button horizontally
+        alignItems: 'center', // This will center the button vertically
+    },
+    table: {
+        width: '95%',
+        marginTop: '10px',
+        marginBottom: '10px', // Adds some space below the table
+      },
+}
 class StatisticTreatmentTurn extends Component {
     constructor(props) {
         super(props);
@@ -24,43 +45,14 @@ class StatisticTreatmentTurn extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/get/treatment_turns').then(res => {
-            console.log(res.data.treatment_turns)
-            const treatment = res.data.treatment_turns.map(treat => {
-                const newTreat = treat;
-                newTreat.turn_time = this.convertDate(new Date(treat.turn_time));
-                return newTreat;
+        axios.get("/medicine/usage")
+            .then(response => {
+                this.setState({ treatment_turns: response.data.data });
             })
-            console.log(treatment)
-            let day = [];
-            for (let i = 0; i < treatment.length; i++)
-                if (!day.includes(treatment[i].turn_time)) day.push(treatment[i].turn_time)
-            
-            day = day.map(x => {
-                let total = 0;
-                treatment.map(y => {if (y.turn_time === x) total += 1; return y})
-                return {
-                    created_date: x,
-                    "Số lượt điều trị": total
-                }
-            }).sort((a,b) => this.compare(b.created_date, a.created_date))
-
-            console.log(day);
-            this.setState({ treatment_turns: day });
-        })
-        .catch(error => console.log(error));
-
-        // axios.get('/api/get/total_value')
-        //     .then(res => {
-        //         const orders = res.data.data_statistic.map(order => {
-        //             const newOrder = order;
-        //             newOrder.created_date = new Date(order.created_date);
-        //             return newOrder;
-        //         })
-        //         this.setState({ orders_statistic: orders });
-        //     })
-        //     .catch(error => console.log(error));
-    }
+            .catch(error => {
+                console.error("Lỗi khi lấy dữ liệu:", error);
+            });
+    }    
 
     compare(day1, day2) {
         day1 = day1.split("/").map(x => parseInt(x));
@@ -118,94 +110,73 @@ class StatisticTreatmentTurn extends Component {
     }
 
     render() {
-        const orders_statistic = this.state.filter.map((order) => {
+        
+        const medicineStatistic = this.state.treatment_turns.map((item, index) => {
             return (
-                <tr>
-                    <th scope="row">
-                        {this.state.filter.indexOf(order) + 1}
-                    </th>
-                    <td>
-                        {order.created_date}
-                    </td>
-                    <td>
-                        {(order["Số lượt điều trị"]).toLocaleString('vi-VN')}
-                    </td>
+                <tr key={index}>
+                    <td>{item.ma_thuoc}</td>
+                    <td>{item.ten_thuoc}</td>
+                    <td>{item.tong_so_lan_su_dung.toLocaleString('vi-VN')}</td>
                 </tr>
             )
         });
 
-        let total_money = 0;
-        this.state.filter.map(order => {
-            total_money += order["Số lượt điều trị"];
-            return order;
-        })
-
-        const DataFormater = (number) => {
-            return (number.toString().toLocaleString('vi-VN'))
-        }
         if (this.context.role !== "Nurse" && this.context.role !== "Doctor") return <Switch> <Redirect to={`/${this.context.role}`} /></Switch>
         return (
             <>
                 {(() => {if (this.context.role === "Nurse") return <NurseSideBar />; else return <DoctorSideBar />})()}
-                <Container>
-                    <Row className="statistic-order-heading">
-                        <Col md="4" className='statistic-order-header'> Thống kê lượt điều trị </Col>
-                        <Col md="8">
-                            <Row>
-                                <Col md="4">
-                                    <Input className="search-box" id="startTime" name="date" placeholder="Bắt đầu" type="date"
-                                        innerRef={(input) => this.start_time = input} />
-                                </Col>
-                                <Col md="4">
-                                    <Input className="search-box" id="endTime" name="date" placeholder="Kết thúc" type="date"
-                                        innerRef={(input) => this.end_time = input} />
-                                </Col>
-                                <Col md="4">
-                                    <Button className="search-statistic-button" style={{ marginTop: '0px' }} onClick={this.onInputTime}>
-                                        <FaSearch /> Tìm <span style={{ textTransform: 'lowercase' }}> kiếm </span>
-                                    </Button>
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="total-money"> Có: {total_money.toLocaleString('vi-VN')} lượt điều trị </Col>
-                    </Row>
-
-                    <Row className="total-money-chart">
-                        <BarChart width={730} height={250} data={this.state.filter}
-                            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                <Container style={styles.container}>
+                <Row style={{ textAlign: 'center' }}>
+            <Col>
+              <h2>Thống kê lượng thuốc sử dụng</h2>
+              <hr />
+            </Col>
+          </Row>
+          <Row style={{ textAlign: 'left' }}>
+            <Col>
+              <h4>Biểu đồ</h4>
+            </Col>
+          </Row>
+          <div style={styles.chartContainer}>
+                        <BarChart
+                            width={700} // Điều chỉnh chiều rộng để phù hợp
+                            height={300}
+                            data={this.state.treatment_turns}
+                            margin={{ top: 20, right: 50, bottom: 50, left: 20 }} // Tăng margin phải lên 50px
+                        >
                             <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="created_date" />
-                            <YAxis tickFormatter={DataFormater} />
+                            <XAxis dataKey="ten_thuoc">
+                                <Label value="Tên loại thuốc" offset={-15} position="insideBottom" />
+                            </XAxis>
+                            <YAxis label={{ value: 'Số lần sử dụng', angle: -90, position: 'insideLeft' }} />
                             <Tooltip />
-                            <Legend />
-                            <Bar dataKey="Số lượt điều trị" fill="#8884d8" />
+                            <Legend layout="vertical" align="right" verticalAlign="middle" wrapperStyle={{ paddingLeft: '40px' }} /> {/* Thêm padding trái cho Legend */}
+                            <Bar dataKey="tong_so_lan_su_dung" fill="#8884d8" name="Tổng số lần sử dụng" />
                         </BarChart>
+                    </div>
 
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Table responsive hover striped>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            #
-                                        </th>
-                                        <th>
-                                            Ngày
-                                        </th>
-                                        <th>
-                                            Số lượt điều trị
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {orders_statistic}
-                                </tbody>
-                            </Table>
-                        </Col>
-                    </Row>
+           
+          <Row style={{ textAlign: 'left' , marginTop: '20px' }}>
+            <Col>
+              <h4>Bảng thống kê</h4>
+            </Col>
+          </Row>
+
+            {/* Hiển thị Bảng Thống Kê */}
+            <div style={styles.tableContainer}>
+            <Table bordered style={styles.table}>
+                    <thead>
+                        <tr>
+                            <th>Mã Thuốc</th>
+                            <th>Tên Thuốc</th>
+                            <th>Số Lần Sử Dụng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {medicineStatistic}
+                    </tbody>
+                </Table>
+            </div>
                 </Container>
             </>
         );

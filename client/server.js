@@ -14,7 +14,7 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   host: "localhost",
   user: "root",
-  password: "Phuc2002@",
+  password: "18012002",
   database: "btl",
 });
 
@@ -136,6 +136,71 @@ function fetchDataFromMySQL_lich_kham(callback) {
     });
   });
 }
+
+function getDoctors(n, x, callback) {
+  pool.getConnection((err, connection) => {
+    if (err) {
+      console.error("Lỗi kết nối:", err);
+      return callback(err, null);
+    }
+
+    const query = "CALL getDoctor(?, ?)";
+    connection.query(query, [n, x], (error, results, fields) => {
+      connection.release();
+
+      if (error) {
+        console.error("Lỗi truy vấn:", error);
+        return callback(error, null);
+      }
+      callback(null, results[0]); // Trả về kết quả của thủ tục
+    });
+  });
+}
+
+
+app.get("/doctors", (req, res) => {
+  const { n, x } = req.query; // lấy thông tin từ query params
+  getDoctors(n, x, (err, data) => {
+    if (err) {
+      res.status(500).json({ error: "Lỗi khi lấy dữ liệu từ MySQL" });
+      return;
+    }
+    res.json({ data });
+  });
+});
+
+function fetchMedicineUsage(callback) {
+  pool.getConnection((err, connection) => {
+      if (err) {
+          console.error("Lỗi kết nối:", err);
+          return callback(err, null);
+      }
+
+      const query = "SELECT tt.ma_thuoc, t.ten_thuoc, SUM(tt.so_luong) as tong_so_lan_su_dung FROM thuoc_trong_don tt JOIN thuoc t ON tt.ma_thuoc = t.ma_thuoc GROUP BY tt.ma_thuoc ORDER BY tong_so_lan_su_dung DESC";
+      connection.query(query, (error, results, fields) => {
+          connection.release();
+
+          if (error) {
+              console.error("Lỗi truy vấn:", error);
+              return callback(error, null);
+          }
+          callback(null, results); // Trả về kết quả truy vấn
+      });
+  });
+}
+
+// API endpoint
+app.get("/medicine/usage", (req, res) => {
+  fetchMedicineUsage((err, data) => {
+      if (err) {
+          console.error("Lỗi khi lấy dữ liệu từ MySQL:", err);
+          res.status(500).json({ error: "Lỗi khi lấy dữ liệu từ MySQL" });
+          return;
+      }
+      res.json({ data }); // Trả về dữ liệu dưới dạng JSON
+  });
+});
+
 
 app.get("/schedule/data", (req, res) => {
   fetchDataFromMySQL_lich_kham((err, data) => {
