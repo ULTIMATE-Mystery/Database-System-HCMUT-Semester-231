@@ -11,7 +11,7 @@ app.use(cors());
 const PORT = 4000;
 
 const pool = mysql.createPool({
-  connectionLimit: 10,
+  connectionLimit: 20,
   host: "localhost",
   user: "root",
   password: "18012002",
@@ -234,6 +234,36 @@ function fetchDataFromMySQL_medicine(callback) {
 
 app.get("/medicine/data", (req, res) => {
   fetchDataFromMySQL_medicine((err, data) => {
+    if (err) {
+      console.error("Lỗi khi lấy dữ liệu từ MySQL:", err);
+      res.status(500).json({ error: "Lỗi khi lấy dữ liệu từ MySQL" });
+      return;
+    }
+    res.json({ data }); // Trả về dữ liệu dưới dạng JSON
+  });
+});
+
+function fetchDataFromMySQL_test(callback) {
+  pool.getConnection((err, connection) => {
+    if (err) {
+      console.error("Lỗi kết nối:", err);
+      return callback(err, null);
+    }
+
+    connection.query("SELECT * FROM xet_nghiem_chi_dinh", (error, results, fields) => {
+      connection.release(); // Giải phóng kết nối sau khi thực hiện truy vấn
+
+      if (error) {
+        console.error("Lỗi truy vấn:", error);
+        return callback(error, null);
+      }
+      callback(null, results); // Trả về dữ liệu bằng callback
+    });
+  });
+}
+
+app.get("/test/data", (req, res) => {
+  fetchDataFromMySQL_test((err, data) => {
     if (err) {
       console.error("Lỗi khi lấy dữ liệu từ MySQL:", err);
       res.status(500).json({ error: "Lỗi khi lấy dữ liệu từ MySQL" });

@@ -12,6 +12,7 @@ import {
 import axios from "axios";
 
 import CreateOrderModal from "../../../Components/Modal/CreateBillModal.js";
+import UpdateBillModal from "../../../Components/Modal/UpdateBillModal.js";
 
 function ViewOrder() {
   const addHours = (dateTimeString, hours) => {
@@ -43,6 +44,20 @@ function ViewOrder() {
     setModalOpen(!modalOpen);
   };
 
+  const [modalOpenUpdate, setModalOpenUpdate] = useState(false);
+
+  // Function để mở hoặc đóng modal
+  const toggleModalUpdate = () => {
+    setModalOpenUpdate(!modalOpenUpdate);
+  };
+
+  const [selectedBillId, setSelectedBillId] = useState(null);
+
+  const handleUpdateClick = (billId) => {
+    setSelectedBillId(billId);
+    toggleModalUpdate();
+    // Mở modal UpdateBillModal
+  };
   const [myData, setMyData] = useState([]);
   useEffect(() => {
     fetchData(); // Gọi API khi component được render lần đầu tiên
@@ -121,9 +136,13 @@ function ViewOrder() {
                   <td>
                     <Row>
                       <Col>
-                        <Button color="primary" style={{ marginBottom: "5px" }}>
+                        <Button
+                          color="primary"
+                          style={{ marginBottom: "5px" }}
+                          // onClick={() => handleUpdateClick()}
+                        >
                           Update
-                        </Button>
+                        </Button> 
                         <Button
                           color="danger"
                           onClick={() =>
@@ -154,6 +173,19 @@ function ViewOrder() {
             isOpen={modalOpen}
             toggleModal={toggleModal}
             fetchData={fetchData}
+          />
+        </ModalBody>
+        {/* Bổ sung các phần khác của Modal nếu cần */}
+      </Modal>
+
+      <Modal isOpen={modalOpenUpdate} toggle={toggleModalUpdate}>
+        <ModalHeader toggle={toggleModalUpdate}>Cập nhật hóa đơn </ModalHeader>
+        <ModalBody>
+          <UpdateBillModal
+            isOpen={modalOpenUpdate}
+            toggleModal={toggleModalUpdate}
+            fetchData={fetchData}
+            getID={selectedBillId}
           />
         </ModalBody>
         {/* Bổ sung các phần khác của Modal nếu cần */}
